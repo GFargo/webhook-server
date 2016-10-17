@@ -50,14 +50,19 @@ def http_loop():
     httpd.handle_request()
 
 _html_template = None
+_is_private = True
 
 def html_template():
     global _html_template
+    global _is_private
 
     _html_template = None # TODO: remove
 
-    if _html_template is None:
+    if _html_template is None and _is_private is not True:
         with open('get.html') as f:
+            _html_template = f.read()
+    else:
+    	with open('private.html') as f:
             _html_template = f.read()
 
     return _html_template
