@@ -50,7 +50,7 @@ def http_loop():
     httpd.handle_request()
 
 _html_template = None
-_is_private = True
+_is_private = False
 
 def html_template():
     global _html_template
